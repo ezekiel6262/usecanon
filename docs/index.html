@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Canon Docs — Memory-native storytelling</title>
+<meta name="description" content="Learn how Canon uses structured memory, continuity checks, specialist agents and Qwen-powered generation to build stories that remember.">
+<link rel="canonical" href="https://usecanon.xyz/docs/">
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Archivo:ital,wght@0,300..800&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>body{margin:0;background:#fff;font-family:'Archivo',sans-serif;color:#0a0a0a;-webkit-font-smoothing:antialiased}a{color:#0a0a0a;text-decoration:none}a:hover{color:oklch(0.5 0.24 290)}::selection{background:oklch(0.5 0.24 290);color:#fff}x-dc,sc-if{display:block}sc-if[hidden]{display:none!important}.docs-link{padding:11px 12px;cursor:pointer;font-size:13px;display:flex;gap:10px;align-items:baseline;color:rgba(10,10,10,.75)}.docs-link:hover{color:oklch(0.5 0.24 290)}.docs-link.active{background:#0a0a0a;color:#fff}.docs-link span{font-family:'Space Mono',monospace;font-size:9px;color:oklch(0.5 0.24 290)}.docs-link.active span{color:oklch(0.72 0.18 290)}@media(max-width:760px){.docs-shell{display:block!important}.docs-sidebar{position:static!important;height:auto!important;border-right:0!important;border-bottom:1px solid #0a0a0a;padding:18px!important}.docs-nav{display:flex;overflow:auto}.docs-link{white-space:nowrap}.docs-content{padding:36px 22px 72px!important}.top-links{display:none!important}}</style>
+</helmet>
+<div style="background:#fff;min-height:100vh">
+<!-- top bar -->
+<div style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid #0a0a0a;display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:64px">
+  <div style="display:flex;align-items:center;gap:12px">
+    <a href="/" style="display:flex;align-items:center;gap:12px">
+      <span style="width:30px;height:30px;border:1.5px solid #0a0a0a;display:flex;align-items:center;justify-content:center;font-family:'Instrument Serif',serif;font-size:20px">C</span>
+      <span style="font-family:'Instrument Serif',serif;font-size:24px;letter-spacing:0.04em">Canon</span>
+    </a>
+    <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.16em;color:oklch(0.5 0.24 290);border:1px solid oklch(0.5 0.24 290);padding:3px 10px;margin-left:6px">DOCS</span>
+  </div>
+  <div class="top-links" style="display:flex;gap:34px;font-size:12px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase">
+    <a href="/">Home</a><a href="/#pricing">Pricing</a>
+  </div>
+  <a href="https://app.usecanon.xyz/" style="background:#0a0a0a;color:#fff;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:11px 22px;cursor:pointer">Open Studio</a>
+</div>
+
+<div class="docs-shell" style="display:grid;grid-template-columns:270px 1fr;max-width:1280px;margin:0 auto">
+  <!-- sidebar -->
+  <div class="docs-sidebar" style="border-right:1px solid #0a0a0a;padding:40px 28px;position:sticky;top:64px;height:calc(100vh - 64px);box-sizing:border-box;overflow-y:auto">
+    <nav class="docs-nav" id="docs-nav" aria-label="Documentation sections"></nav>
+    <div style="margin-top:28px;border-top:1px solid rgba(10,10,10,0.15);padding-top:18px;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.1em;color:rgba(10,10,10,0.45);line-height:2">CANON DOCS v1.14<br>UPDATED JUL 2026</div>
+  </div>
+
+  <!-- content -->
+  <main class="docs-content" style="padding:48px 56px 96px;min-width:0">
+
+    <sc-if value="{{ isStart }}" hint-placeholder-val="{{ true }}">
+    <div data-screen-label="Getting started">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;color:oklch(0.5 0.24 290)">01 - GETTING STARTED</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.04;margin-top:14px">Your first locked episode</div>
+      <div style="font-size:15px;line-height:1.7;color:rgba(10,10,10,0.7);margin-top:18px;max-width:640px;font-weight:300">Canon is a narrative operating system: it remembers your universe, checks every new idea against locked canon, and never writes memory without your signature. This guide takes you from an empty project to Episode 1, locked.</div>
+      <div style="margin-top:32px;display:flex;flex-direction:column;gap:0;border:1px solid #0a0a0a;max-width:760px">
+        <div style="padding:22px 26px;border-bottom:1px solid rgba(10,10,10,0.15);display:grid;grid-template-columns:52px 1fr;gap:18px">
+          <div style="font-family:'Instrument Serif',serif;font-size:36px;color:rgba(10,10,10,0.25)">1</div>
+          <div><div style="font-size:14px;font-weight:600">Create a series</div><div style="font-size:13px;line-height:1.6;color:rgba(10,10,10,0.65);margin-top:6px;font-weight:300">The guided form asks for premise, genre, tone and world rules. Everything is editable later - but world rules you mark as <em>forbidden changes</em> become firewall law.</div></div>
+        </div>
+        <div style="padding:22px 26px;border-bottom:1px solid rgba(10,10,10,0.15);display:grid;grid-template-columns:52px 1fr;gap:18px">
+          <div style="font-family:'Instrument Serif',serif;font-size:36px;color:rgba(10,10,10,0.25)">2</div>
+          <div><div style="font-size:14px;font-weight:600">Define Character DNA</div><div style="font-size:13px;line-height:1.6;color:rgba(10,10,10,0.65);margin-top:6px;font-weight:300">Appearance, wardrobe anchors, motivations, fears and behavioral rules. Approved reference images become the visual lock Wan renders against.</div></div>
+        </div>
+        <div style="padding:22px 26px;border-bottom:1px solid rgba(10,10,10,0.15);display:grid;grid-template-columns:52px 1fr;gap:18px">
+          <div style="font-family:'Instrument Serif',serif;font-size:36px;color:rgba(10,10,10,0.25)">3</div>
+          <div><div style="font-size:14px;font-weight:600">Write a premise and generate</div><div style="font-size:13px;line-height:1.6;color:rgba(10,10,10,0.65);margin-top:6px;font-weight:300">One line is enough. Canon retrieves relevant memories, runs the firewall, and drafts beats, script and storyboard inside your budget mode.</div></div>
+        </div>
+        <div style="padding:22px 26px;display:grid;grid-template-columns:52px 1fr;gap:18px;background:#0a0a0a;color:#fff">
+          <div style="font-family:'Instrument Serif',serif;font-size:36px;color:oklch(0.72 0.18 290)">4</div>
+          <div><div style="font-size:14px;font-weight:600">Review the diff and lock</div><div style="font-size:13px;line-height:1.6;color:rgba(255,255,255,0.65);margin-top:6px;font-weight:300">Approve, reject or edit each fact. Your signature creates snapshot v1.1 - the first memory of your universe.</div></div>
+        </div>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isMemory }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Memory model">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;color:oklch(0.5 0.24 290)">02 - MEMORY MODEL</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.04;margin-top:14px">How Canon remembers</div>
+      <div style="font-size:15px;line-height:1.7;color:rgba(10,10,10,0.7);margin-top:18px;max-width:640px;font-weight:300">Every locked episode becomes structured memory: facts, relationships, knowledge states and open threads - each with provenance. Before a new episode, Canon retrieves only what matters.</div>
+      <div style="margin-top:28px;border:1px solid #0a0a0a;max-width:760px">
+        <div style="padding:16px 22px;border-bottom:1px solid rgba(10,10,10,0.15);display:flex;justify-content:space-between;gap:16px;font-size:13px"><span><strong>Locked fact</strong> - authoritative story truth</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:oklch(0.5 0.24 290)">SIGNED · VERSIONED</span></div>
+        <div style="padding:16px 22px;border-bottom:1px solid rgba(10,10,10,0.15);display:flex;justify-content:space-between;gap:16px;font-size:13px"><span><strong>Inferred fact</strong> - derived, lower confidence</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.45)">PROMOTABLE</span></div>
+        <div style="padding:16px 22px;border-bottom:1px solid rgba(10,10,10,0.15);display:flex;justify-content:space-between;gap:16px;font-size:13px"><span><strong>Character belief</strong> - what someone thinks is true</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.45)">≠ STORY TRUTH</span></div>
+        <div style="padding:16px 22px;display:flex;justify-content:space-between;gap:16px;font-size:13px"><span><strong>Open thread</strong> - a promise to the audience</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.45)">TRACKED TO RESOLUTION</span></div>
+      </div>
+      <div style="margin-top:22px;background:#f4f4f2;border:1px solid rgba(10,10,10,0.2);padding:18px 22px;max-width:716px;font-size:13px;line-height:1.65;color:rgba(10,10,10,0.7)"><span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;color:oklch(0.5 0.24 290)">RETRIEVAL</span><br>A typical episode packs ~6 of 200+ memories (about 4k tokens, ~92% context saved). Every retrieved memory shows its source episode, relevance score and token cost in the Memory Explainer.</div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isFirewall }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Continuity firewall">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;color:oklch(0.5 0.24 290)">03 - CONTINUITY FIREWALL</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.04;margin-top:14px">Checks before generation</div>
+      <div style="font-size:15px;line-height:1.7;color:rgba(10,10,10,0.7);margin-top:18px;max-width:640px;font-weight:300">Every proposed episode is checked against locked canon across ten violation types. Violations are explained with evidence and a canon-safe rewrite - never silently rejected.</div>
+      <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#0a0a0a;border:1px solid #0a0a0a;max-width:820px">
+        <div style="background:#fff;padding:18px 22px"><div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;border:1px solid #0a0a0a;width:fit-content;padding:3px 9px">PASS</div><div style="font-size:13px;line-height:1.6;color:rgba(10,10,10,0.65);margin-top:10px;font-weight:300">No conflicts. Generation proceeds without interruption.</div></div>
+        <div style="background:#fff;padding:18px 22px"><div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;background:#FFD84D;width:fit-content;padding:4px 10px">WARN</div><div style="font-size:13px;line-height:1.6;color:rgba(10,10,10,0.65);margin-top:10px;font-weight:300">A soft conflict with evidence, confidence, and a suggested rewrite. You can apply, ignore, or retcon.</div></div>
+        <div style="background:#fff;padding:18px 22px"><div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;background:#E4572E;color:#fff;width:fit-content;padding:4px 10px">BLOCK</div><div style="font-size:13px;line-height:1.6;color:rgba(10,10,10,0.65);margin-top:10px;font-weight:300">A hard contradiction of locked canon (e.g. a dead character alive). Requires rewrite or an explicit retcon.</div></div>
+        <div style="background:#fff;padding:18px 22px"><div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;border:1px solid oklch(0.5 0.24 290);color:oklch(0.5 0.24 290);width:fit-content;padding:3px 9px">RETCON</div><div style="font-size:13px;line-height:1.6;color:rgba(10,10,10,0.65);margin-top:10px;font-weight:300">Intentional change: Canon shows affected facts and episodes, generates repair suggestions, and preserves the previous version.</div></div>
+      </div>
+      <div style="margin-top:22px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.08em;color:rgba(10,10,10,0.5);line-height:2;max-width:760px">VIOLATION TYPES: FACTUAL · TIMELINE · MOTIVATION · VISUAL · RELATIONSHIP · WORLD-RULE · LOCATION · KNOWLEDGE LEAK · CAUSAL GAP · DUPLICATE BEAT</div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isDiff }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Canon diff">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;color:oklch(0.5 0.24 290)">04 - CANON DIFF</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.04;margin-top:14px">The approval gate</div>
+      <div style="font-size:15px;line-height:1.7;color:rgba(10,10,10,0.7);margin-top:18px;max-width:640px;font-weight:300">Drafts never touch memory. Before an episode becomes canon, every change crosses your desk as a diff - facts added, modified or contradicted; relationships and knowledge changed; threads introduced, advanced or resolved.</div>
+      <div style="margin-top:28px;border:1px solid #0a0a0a;max-width:760px">
+        <div style="padding:16px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;gap:14px;align-items:baseline"><span style="font-family:'Space Mono',monospace;font-size:9px;border:1px solid #0a0a0a;padding:3px 8px;flex:none">APPROVE</span><span style="color:rgba(10,10,10,0.7)">The fact is written to memory when the episode locks.</span></div>
+        <div style="padding:16px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;gap:14px;align-items:baseline"><span style="font-family:'Space Mono',monospace;font-size:9px;border:1px solid #0a0a0a;padding:3px 8px;flex:none">REJECT</span><span style="color:rgba(10,10,10,0.7)">The fact stays in the isolated draft; the scene remains, memory doesn't change.</span></div>
+        <div style="padding:16px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;gap:14px;align-items:baseline"><span style="font-family:'Space Mono',monospace;font-size:9px;border:1px solid #0a0a0a;padding:3px 8px;flex:none">EDIT</span><span style="color:rgba(10,10,10,0.7)">Rewrite the fact before it locks - your words become the canonical phrasing.</span></div>
+        <div style="padding:16px 22px;font-size:13px;display:flex;gap:14px;align-items:baseline;background:#0a0a0a;color:#fff"><span style="font-family:'Space Mono',monospace;font-size:9px;border:1px solid oklch(0.72 0.18 290);color:oklch(0.72 0.18 290);padding:3px 8px;flex:none">LOCK</span><span style="color:rgba(255,255,255,0.75)">Creates a reversible snapshot (e.g. v1.15). Locked canon becomes retrieval context for the next episode.</span></div>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isAgents }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Writers Room agents">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;color:oklch(0.5 0.24 290)">05 - WRITERS’ ROOM AGENTS</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.04;margin-top:14px">An editorial review, not a chat</div>
+      <div style="font-size:15px;line-height:1.7;color:rgba(10,10,10,0.7);margin-top:18px;max-width:640px;font-weight:300">Eight specialist agents review every draft in a two-round debate, then vote. Disagreements surface with confidence scores; some roles hold veto gates. You are the showrunner - your decision is final and logged.</div>
+      <div style="margin-top:28px;border:1px solid #0a0a0a;max-width:860px">
+        <div id="agents-table"></div>
+      </div>
+      <div style="margin-top:22px;background:#f4f4f2;border:1px solid rgba(10,10,10,0.2);padding:18px 22px;max-width:816px;font-size:13px;line-height:1.65;color:rgba(10,10,10,0.7)"><span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;color:oklch(0.5 0.24 290)">HOW A REVIEW RUNS</span><br>Round 1: each agent critiques the draft independently. Round 2: agents respond to each other's positions. Then a vote - consensus proceeds; a veto from the Continuity Editor or a Character DNA gate blocks until resolved. The selected recommendation and your final decision are written to the decision log.</div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isBudget }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Budgets">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;color:oklch(0.5 0.24 290)">06 - BUDGETS &amp; GENERATION</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.04;margin-top:14px">Budget-aware by design</div>
+      <div style="font-size:15px;line-height:1.7;color:rgba(10,10,10,0.7);margin-top:18px;max-width:640px;font-weight:300">Qwen tokens and Wan video seconds are allocated per episode by the Budget Governor. Expensive calls always require explicit confirmation - no surprise invoices.</div>
+      <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:#0a0a0a;border:1px solid #0a0a0a;max-width:820px">
+        <div style="background:#fff;padding:20px 22px"><div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.14em;color:rgba(10,10,10,0.5)">PILOT MODE</div><div style="font-family:'Instrument Serif',serif;font-size:24px;margin-top:8px">Storyboard-first</div><div style="font-size:12.5px;line-height:1.6;color:rgba(10,10,10,0.65);margin-top:8px;font-weight:300">Boards and stills only; render nothing until the cut is approved. ~18k tokens, 10s video.</div></div>
+        <div style="background:#fff;padding:20px 22px"><div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.14em;color:rgba(10,10,10,0.5)">STANDARD</div><div style="font-family:'Instrument Serif',serif;font-size:24px;margin-top:8px">Selected shots</div><div style="font-size:12.5px;line-height:1.6;color:rgba(10,10,10,0.65);margin-top:8px;font-weight:300">Key shots rendered at 1080p, the rest boarded. ~38k tokens, 24s video.</div></div>
+        <div style="background:#fff;padding:20px 22px"><div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.14em;color:rgba(10,10,10,0.5)">FINALE</div><div style="font-family:'Instrument Serif',serif;font-size:24px;margin-top:8px">Full render</div><div style="font-size:12.5px;line-height:1.6;color:rgba(10,10,10,0.65);margin-top:8px;font-weight:300">Every shot rendered, retries enabled, priority queue. ~92k tokens, 58s video.</div></div>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isExport }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Export">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;color:oklch(0.5 0.24 290)">07 - EXPORT &amp; OWNERSHIP</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.04;margin-top:14px">Locked canon is yours</div>
+      <div style="font-size:15px;line-height:1.7;color:rgba(10,10,10,0.7);margin-top:18px;max-width:640px;font-weight:300">Every plan includes full export, any time. Your universe is portable data, not platform lock-in.</div>
+      <div style="margin-top:28px;border:1px solid #0a0a0a;max-width:760px">
+        <div style="padding:15px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;justify-content:space-between;gap:14px"><span>Canon package - full memory, versioned</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:oklch(0.5 0.24 290)">JSON</span></div>
+        <div style="padding:15px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;justify-content:space-between;gap:14px"><span>Scripts</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.5)">FINAL DRAFT · FOUNTAIN · MARKDOWN</span></div>
+        <div style="padding:15px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;justify-content:space-between;gap:14px"><span>Story bible</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.5)">PDF · PUBLIC WEB VIEW</span></div>
+        <div style="padding:15px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;justify-content:space-between;gap:14px"><span>Media</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.5)">CLIPS · STORYBOARDS · EDL · SUBTITLES</span></div>
+        <div style="padding:15px 22px;font-size:13px;display:flex;justify-content:space-between;gap:14px"><span>Integrations</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.5)">API · WEBHOOKS · PRODUCTION REPORTS</span></div>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isAutopilot }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Episode Autopilot">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;color:oklch(0.5 0.24 290)">08 - EPISODE AUTOPILOT</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.04;margin-top:14px">A supervised pipeline</div>
+      <div style="font-size:15px;line-height:1.7;color:rgba(10,10,10,0.7);margin-top:18px;max-width:640px;font-weight:300">Autopilot runs the full episode workflow as discrete, pausable stages. Nothing is autonomous past your policy: every stage can be paused, edited or rerun, and the run always ends at the approval gate.</div>
+      <div style="margin-top:28px;border:1px solid #0a0a0a;max-width:760px">
+        <div id="stages-table"></div>
+      </div>
+      <div style="margin-top:18px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.08em;color:rgba(10,10,10,0.5)">PAUSE · EDIT · RERUN ANY STAGE - THE RUN NEVER LOCKS MEMORY BY ITSELF</div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isGraph }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Canon Graph">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;color:oklch(0.5 0.24 290)">09 - CANON GRAPH</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.04;margin-top:14px">The universe as a graph</div>
+      <div style="font-size:15px;line-height:1.7;color:rgba(10,10,10,0.7);margin-top:18px;max-width:640px;font-weight:300">Every entity and relationship in your story is a node you can inspect: zoom, filter by type, trace any fact back to its source episode, and preview how a draft episode would change the graph before it locks.</div>
+      <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#0a0a0a;border:1px solid #0a0a0a;max-width:820px">
+        <div style="background:#fff;padding:18px 22px"><div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;color:oklch(0.5 0.24 290)">ENTITY TYPES</div><div style="font-size:13px;line-height:1.8;color:rgba(10,10,10,0.7);margin-top:10px;font-weight:300">Characters · relationships · locations · factions · artifacts · rules · events · secrets · visual motifs · unresolved threads</div></div>
+        <div style="background:#fff;padding:18px 22px"><div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;color:oklch(0.5 0.24 290)">INTERACTIONS</div><div style="font-size:13px;line-height:1.8;color:rgba(10,10,10,0.7);margin-top:10px;font-weight:300">Inspect connections · trace facts to episodes · lock or amend facts · show conflicts · diff an episode against the graph · separate audience knowledge from character knowledge</div></div>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isDna }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Character DNA">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;color:oklch(0.5 0.24 290)">10 - CHARACTER DNA</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.04;margin-top:14px">Identity that survives generation</div>
+      <div style="font-size:15px;line-height:1.7;color:rgba(10,10,10,0.7);margin-top:18px;max-width:640px;font-weight:300">Each character carries a persistent narrative, visual and performance identity. Wan renders against the visual lock; the Character Writer defends the behavioral rules; drift gets flagged, not shipped.</div>
+      <div style="margin-top:28px;border:1px solid #0a0a0a;max-width:760px">
+        <div style="padding:15px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;justify-content:space-between;gap:14px"><span><strong>Narrative</strong> - personality, motivations, fears, secrets, emotional arc</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.45)">QWEN CONTEXT</span></div>
+        <div style="padding:15px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;justify-content:space-between;gap:14px"><span><strong>Visual</strong> - appearance, wardrobe anchors, prompt lock, negative lock, approved references</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.45)">WAN LOCK</span></div>
+        <div style="padding:15px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;justify-content:space-between;gap:14px"><span><strong>Knowledge</strong> - what they know, believe, and have never learned</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.45)">PER EPISODE</span></div>
+        <div style="padding:15px 22px;font-size:13px;display:flex;justify-content:space-between;gap:14px"><span><strong>Rules</strong> - behavioral laws the firewall enforces (e.g. "never breaks a spoken promise")</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:oklch(0.5 0.24 290)">DNA GATE</span></div>
+      </div>
+      <div style="margin-top:22px;background:#f4f4f2;border:1px solid rgba(10,10,10,0.2);padding:18px 22px;max-width:716px;font-size:13px;line-height:1.65;color:rgba(10,10,10,0.7)"><span style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;color:oklch(0.5 0.24 290)">CONTINUITY CONFIDENCE</span><br>Each character carries a 0-1 score reflecting how consistently recent episodes and clips match their DNA. Visual drift (a changed coat color, a new hairstyle) lowers it and opens a side-by-side frame comparison.</div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isKnowledge }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Knowledge perspectives">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;color:oklch(0.5 0.24 290)">11 - KNOWLEDGE PERSPECTIVES</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.04;margin-top:14px">Who knows what</div>
+      <div style="font-size:15px;line-height:1.7;color:rgba(10,10,10,0.7);margin-top:18px;max-width:640px;font-weight:300">Canon tracks five layers of knowledge so characters never act on information they haven't learned - the most common continuity failure in generated fiction.</div>
+      <div style="margin-top:28px;border:1px solid #0a0a0a;max-width:760px">
+        <div style="padding:15px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;justify-content:space-between;gap:14px"><span><strong>Story truth</strong> - what is objectively true</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:oklch(0.5 0.24 290)">AUTHORITATIVE</span></div>
+        <div style="padding:15px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;justify-content:space-between;gap:14px"><span><strong>Audience knowledge</strong> - what viewers have seen on screen</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.45)">DRIVES REVEALS</span></div>
+        <div style="padding:15px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;justify-content:space-between;gap:14px"><span><strong>Character knowledge</strong> - per character, per episode</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.45)">LEAK-CHECKED</span></div>
+        <div style="padding:15px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;justify-content:space-between;gap:14px"><span><strong>Faction knowledge</strong> - shared within a group</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.45)">INHERITED</span></div>
+        <div style="padding:15px 22px;font-size:13px;display:flex;justify-content:space-between;gap:14px"><span><strong>Beliefs &amp; misinformation</strong> - held as true, actually false</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:#E4572E">≠ TRUTH</span></div>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isRetcon }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Retcon and versioning">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;color:oklch(0.5 0.24 290)">12 - RETCONS &amp; VERSIONING</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.04;margin-top:14px">Version control for fiction</div>
+      <div style="font-size:15px;line-height:1.7;color:rgba(10,10,10,0.7);margin-top:18px;max-width:640px;font-weight:300">Canon treats your universe like versioned creative data. Every lock creates a snapshot; branches hold what-if timelines; retcons are explicit operations that show their blast radius before you approve them.</div>
+      <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#0a0a0a;border:1px solid #0a0a0a;max-width:820px">
+        <div style="background:#fff;padding:18px 22px"><div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;color:oklch(0.5 0.24 290)">RETCON MANAGER</div><div style="font-size:13px;line-height:1.8;color:rgba(10,10,10,0.7);margin-top:10px;font-weight:300">Propose a retcon · see affected facts and impacted episodes · get repair suggestions for downstream scenes · mark soft or hard · approve explicitly · previous canon preserved</div></div>
+        <div style="background:#fff;padding:18px 22px"><div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;color:oklch(0.5 0.24 290)">VERSIONING</div><div style="font-size:13px;line-height:1.8;color:rgba(10,10,10,0.7);margin-top:10px;font-weight:300">Snapshots on every lock · branches for alternate timelines · compare versions · rollback · merge approved branches · branch memories never mix accidentally</div></div>
+      </div>
+      <div style="margin-top:18px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.08em;color:rgba(10,10,10,0.5)">SOFT RETCON = REINTERPRET · HARD RETCON = REWRITE HISTORY · BOTH KEEP THE OLD VERSION</div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isVisual }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Visual continuity">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;color:oklch(0.5 0.24 290)">13 - VISUAL CONTINUITY</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.04;margin-top:14px">Every frame on model</div>
+      <div style="font-size:15px;line-height:1.7;color:rgba(10,10,10,0.7);margin-top:18px;max-width:640px;font-weight:300">Generated media drifts; Canon fights it structurally. Shot prompts are assembled from locked templates, references and negative prompts - and finished frames are compared back against the approved look.</div>
+      <div style="margin-top:28px;border:1px solid #0a0a0a;max-width:760px">
+        <div style="padding:15px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;justify-content:space-between;gap:14px"><span>Approved character &amp; location references</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.45)">CREATOR-SIGNED</span></div>
+        <div style="padding:15px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;justify-content:space-between;gap:14px"><span>Color scripts · camera language · visual motifs</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.45)">STYLE GUIDE</span></div>
+        <div style="padding:15px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;justify-content:space-between;gap:14px"><span>Prompt templates + negative prompts per shot</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.45)">AUTO-ASSEMBLED</span></div>
+        <div style="padding:15px 22px;font-size:13px;display:flex;justify-content:space-between;gap:14px"><span>Drift warnings with side-by-side frame comparison</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:#FFB020">FLAGGED, NOT SHIPPED</span></div>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isCollab }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Collaboration">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;color:oklch(0.5 0.24 290)">14 - COLLABORATION &amp; WORKFLOWS</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.04;margin-top:14px">Built for rooms, not just solos</div>
+      <div style="font-size:15px;line-height:1.7;color:rgba(10,10,10,0.7);margin-top:18px;max-width:640px;font-weight:300">Professional teams get formal workflows: role-based permissions, review requests, sign-off chains, and an audit trail behind every canon change.</div>
+      <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#0a0a0a;border:1px solid #0a0a0a;max-width:820px">
+        <div style="background:#fff;padding:18px 22px"><div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;color:oklch(0.5 0.24 290)">EVERYDAY</div><div style="font-size:13px;line-height:1.8;color:rgba(10,10,10,0.7);margin-top:10px;font-weight:300">Comments · assignments · review requests · notifications · change history · decision log</div></div>
+        <div style="background:#fff;padding:18px 22px"><div style="font-family:'Space Mono',monospace;font-size:9px;letter-spacing:0.12em;color:oklch(0.5 0.24 290)">FORMAL</div><div style="font-size:13px;line-height:1.8;color:rgba(10,10,10,0.7);margin-top:10px;font-weight:300">Producer sign-off · continuity-editor sign-off · locked production milestones · exportable review reports · full audit trail</div></div>
+      </div>
+      <div style="margin-top:18px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.08em;color:rgba(10,10,10,0.5)">ROLES: SHOWRUNNER · PRODUCER · CONTINUITY EDITOR · WRITER · VIEWER</div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isPublic }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Public story bible">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.18em;color:oklch(0.5 0.24 290)">15 - PUBLIC STORY BIBLE</div>
+      <div style="font-family:'Instrument Serif',serif;font-size:52px;line-height:1.04;margin-top:14px">A presentation mode for your universe</div>
+      <div style="font-size:15px;line-height:1.7;color:rgba(10,10,10,0.7);margin-top:18px;max-width:640px;font-weight:300">Share a cinematic, read-only view with judges, audiences or collaborators: trailer, logline, world, cast, timeline, episodes, open mysteries and continuity statistics - with a "How Canon remembers" explainer.</div>
+      <div style="margin-top:28px;border:1px solid #0a0a0a;max-width:760px">
+        <div style="padding:15px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;justify-content:space-between;gap:14px"><span>Secrets and unrevealed characters stay hidden</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:oklch(0.5 0.24 290)">SEALED BY DEFAULT</span></div>
+        <div style="padding:15px 22px;border-bottom:1px solid rgba(10,10,10,0.15);font-size:13px;display:flex;justify-content:space-between;gap:14px"><span>Continuity stats build audience trust</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.45)">SCORE · MEMORIES · THREADS</span></div>
+        <div style="padding:15px 22px;font-size:13px;display:flex;justify-content:space-between;gap:14px"><span>Shareable link, no account required to view</span><span style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,0.45)">READ-ONLY</span></div>
+      </div>
+    </div>
+    </sc-if>
+
+  </main>
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { section: 'start' };
+  renderVals() {
+    const ids = ['start','memory','firewall','diff','agents','budget','export','autopilot','graph','dna','knowledge','retcon','visual','collab','public'];
+    const labels = ['Getting started','Memory model','Continuity firewall','Canon diff','Writers’ Room agents','Budgets & generation','Export & ownership','Episode Autopilot','Canon Graph','Character DNA','Knowledge perspectives','Retcons & versioning','Visual continuity','Collaboration','Public story bible'];
+    const s = this.state.section;
+    const sections = ids.map((id, i) => ({
+      label: labels[i], num: String(i + 1).padStart(2, '0'),
+      bg: s === id ? '#0a0a0a' : 'transparent',
+      fg: s === id ? '#fff' : 'rgba(10,10,10,0.75)',
+      numColor: s === id ? 'oklch(0.72 0.18 290)' : 'oklch(0.5 0.24 290)',
+      go: () => this.setState({ section: id })
+    }));
+    const agents = [
+      { role: 'Showrunner', tag: 'VISION', duty: 'Protects the season vision and long-range payoffs; arbitrates when other agents deadlock.', power: 'TIE-BREAK VOTE' },
+      { role: 'Story Architect', tag: 'STRUCTURE', duty: 'Manages plot structure, act rhythm and setup/payoff placement across the season arc.', power: 'VOTE' },
+      { role: 'Character Writer', tag: 'MOTIVATION', duty: 'Defends each character\u2019s motivation, voice and behavioral rules against convenient plotting.', power: 'DNA GATE' },
+      { role: 'Continuity Editor', tag: 'CANON', duty: 'Checks every beat against locked canon; surfaces contradictions with evidence and confidence.', power: 'VETO' },
+      { role: 'Dialogue Writer', tag: 'VOICE', duty: 'Improves dialogue while preserving each character\u2019s locked voice profile and diction.', power: 'VOTE' },
+      { role: 'Visual Director', tag: 'LANGUAGE', duty: 'Maintains the visual style guide - camera language, color script, motifs - in every shot prompt.', power: 'VOTE' },
+      { role: 'Budget Producer', tag: 'RESOURCES', duty: 'Allocates tokens and video seconds per scene; proposes storyboard fallbacks when over budget.', power: 'COST GATE' },
+      { role: 'Audience Analyst', tag: 'CLARITY', duty: 'Evaluates clarity and emotional payoff from the viewer\u2019s seat - flags confusion and flat beats.', power: 'VOTE' }
+    ];
+    const violet = 'oklch(0.5 0.24 290)', gray = 'rgba(10,10,10,0.45)';
+    const stages = [
+      ['Propose next episode from season arc', 'QWEN', violet], ['Retrieve relevant canon', 'MEMORY ENGINE', violet],
+      ['Continuity check', 'FIREWALL', violet], ['Automatic safe rewrite', 'FIREWALL', violet],
+      ['Generate beats', 'QWEN', violet], ['Generate script', 'QWEN', violet],
+      ['Generate storyboard', 'QWEN', violet], ['Allocate video budget', 'BUDGET GOVERNOR', violet],
+      ['Generate selected shots', 'WAN', violet], ['Produce canon diff', 'SHOWRUNNER SVC', violet],
+      ['Request creator approval', 'YOU', gray], ['Lock approved memory', 'YOU', gray]
+    ].map((x, i) => ({ num: String(i + 1).padStart(2, '0'), name: x[0], actor: x[1], color: x[2] }));
+    return {
+      sections, agents, stages,
+      isStart: s === 'start', isMemory: s === 'memory', isFirewall: s === 'firewall',
+      isDiff: s === 'diff', isAgents: s === 'agents', isBudget: s === 'budget', isExport: s === 'export',
+      isAutopilot: s === 'autopilot', isGraph: s === 'graph', isDna: s === 'dna', isKnowledge: s === 'knowledge',
+      isRetcon: s === 'retcon', isVisual: s === 'visual', isCollab: s === 'collab', isPublic: s === 'public'
+    };
+  }
+}
+</script>
+<script>
+const docsSections = [
+  ['start','Getting started'],['memory','Memory model'],['firewall','Continuity firewall'],['diff','Canon diff'],
+  ['agents','Writers’ Room agents'],['budget','Budgets & generation'],['export','Export & ownership'],
+  ['autopilot','Episode Autopilot'],['graph','Canon Graph'],['dna','Character DNA'],
+  ['knowledge','Knowledge perspectives'],['retcon','Retcons & versioning'],['visual','Visual continuity'],
+  ['collab','Collaboration'],['public','Public story bible']
+];
+const docsPanels = [...document.querySelectorAll('[data-screen-label]')];
+const docsWrappers = docsPanels.map(panel => panel.closest('sc-if'));
+const docsNav = document.getElementById('docs-nav');
+docsSections.forEach(([id,label], index) => {
+  const link = document.createElement('a');
+  link.href = `#${id}`;
+  link.className = 'docs-link';
+  link.dataset.section = id;
+  link.innerHTML = `<span>${String(index + 1).padStart(2,'0')}</span>${label}`;
+  docsNav.appendChild(link);
+});
+function showDocsSection() {
+  const requested = location.hash.slice(1);
+  const active = docsSections.some(([id]) => id === requested) ? requested : 'start';
+  docsWrappers.forEach((wrapper, index) => { wrapper.hidden = docsSections[index][0] !== active; });
+  document.querySelectorAll('.docs-link').forEach(link => link.classList.toggle('active', link.dataset.section === active));
+  document.title = `${docsSections.find(([id]) => id === active)[1]} — Canon Docs`;
+  window.scrollTo({top:0, behavior:'instant'});
+}
+const docsAgents = [
+  ['Showrunner','VISION','Protects the season vision and long-range payoffs; arbitrates when other agents deadlock.','TIE-BREAK VOTE'],
+  ['Story Architect','STRUCTURE','Manages plot structure, act rhythm and setup/payoff placement across the season arc.','VOTE'],
+  ['Character Writer','MOTIVATION','Defends each character’s motivation, voice and behavioral rules against convenient plotting.','DNA GATE'],
+  ['Continuity Editor','CANON','Checks every beat against locked canon; surfaces contradictions with evidence and confidence.','VETO'],
+  ['Dialogue Writer','VOICE','Improves dialogue while preserving each character’s locked voice profile and diction.','VOTE'],
+  ['Visual Director','LANGUAGE','Maintains camera language, color script and motifs in every shot prompt.','VOTE'],
+  ['Budget Producer','RESOURCES','Allocates tokens and video seconds per scene; proposes storyboard fallbacks when over budget.','COST GATE'],
+  ['Audience Analyst','CLARITY','Evaluates clarity and emotional payoff from the viewer’s seat; flags confusion and flat beats.','VOTE']
+];
+document.getElementById('agents-table').innerHTML = docsAgents.map(([role,tag,duty,power]) => `<div style="display:grid;grid-template-columns:180px 1fr 150px;border-bottom:1px solid rgba(10,10,10,.15)"><div style="padding:16px 20px;border-right:1px solid rgba(10,10,10,.12)"><div style="font-size:13.5px;font-weight:600">${role}</div><div style="font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.1em;color:oklch(.5 .24 290);margin-top:4px">${tag}</div></div><div style="padding:16px 20px;font-size:13px;line-height:1.6;color:rgba(10,10,10,.65);font-weight:300">${duty}</div><div style="padding:16px 20px;font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:.08em;color:rgba(10,10,10,.45);display:flex;align-items:center">${power}</div></div>`).join('');
+const docsStages = [['Propose next episode from season arc','QWEN'],['Retrieve relevant canon','MEMORY ENGINE'],['Continuity check','FIREWALL'],['Automatic safe rewrite','FIREWALL'],['Generate beats','QWEN'],['Generate script','QWEN'],['Generate storyboard','QWEN'],['Allocate video budget','BUDGET GOVERNOR'],['Generate selected shots','WAN'],['Produce canon diff','SHOWRUNNER SERVICE'],['Request creator approval','YOU'],['Lock approved memory','YOU']];
+document.getElementById('stages-table').innerHTML = docsStages.map(([name,actor],i) => `<div style="display:grid;grid-template-columns:44px 1fr 130px;border-bottom:1px solid rgba(10,10,10,.12);align-items:center"><div style="padding:12px 0 12px 20px;font-family:'Space Mono',monospace;font-size:9px;color:rgba(10,10,10,.4)">${String(i+1).padStart(2,'0')}</div><div style="padding:12px 16px;font-size:13px;color:rgba(10,10,10,.8)">${name}</div><div style="padding:12px 20px;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.08em;color:${actor === 'YOU' ? 'rgba(10,10,10,.45)' : 'oklch(.5 .24 290)'}">${actor}</div></div>`).join('');
+window.addEventListener('hashchange', showDocsSection);
+showDocsSection();
+</script>
+</body>
+</html>
